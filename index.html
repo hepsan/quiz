@@ -5,95 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MIG - Frågespel</title>
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #f4f7f6; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            margin: 0; 
-        }
-        .game-container { 
-            background: white; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-            width: 90%; 
-            max-width: 450px; 
-            padding: 40px 30px; 
-            text-align: center; 
-        }
-        .category-badge { 
-            display: inline-block; 
-            padding: 8px 16px; 
-            border-radius: 20px; 
-            color: white; 
-            font-weight: bold; 
-            margin-bottom: 25px; 
-            text-transform: uppercase; 
-            font-size: 0.9em; 
-            letter-spacing: 1px; 
-            transition: background-color 0.3s;
-        }
-        .question-box { 
-            min-height: 120px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin-bottom: 20px; 
-        }
-        .question { 
-            font-size: 1.3em; 
-            font-weight: 600; 
-            color: #2c3e50; 
-            line-height: 1.4;
-        }
-        .answer-box { 
-            min-height: 60px; 
-            margin-bottom: 30px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .answer { 
-            font-size: 1.2em; 
-            color: #27ae60; 
-            font-weight: bold; 
-            display: none; 
-            animation: fadeIn 0.3s ease-in;
-        }
-        button { 
-            border: none; 
-            padding: 14px 24px; 
-            border-radius: 8px; 
-            font-size: 1.1em; 
-            font-weight: bold; 
-            cursor: pointer; 
-            transition: transform 0.1s, background-color 0.2s; 
-            width: 100%; 
-            margin-bottom: 15px; 
-        }
-        button:active { 
-            transform: scale(0.98); 
-        }
-        .btn-reveal { 
-            background-color: #3498db; 
-            color: white; 
-        }
-        .btn-reveal:hover { 
-            background-color: #2980b9; 
-        }
-        .btn-next { 
-            background-color: #e74c3c; 
-            color: white; 
-        }
-        .btn-next:hover { 
-            background-color: #c0392b; 
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .game-container { background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 90%; max-width: 450px; padding: 40px 30px; text-align: center; }
+        .category-badge { display: inline-block; padding: 8px 16px; border-radius: 20px; color: white; font-weight: bold; margin-bottom: 25px; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; transition: background-color 0.3s; }
+        .question-box { min-height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .question { font-size: 1.3em; font-weight: 600; color: #2c3e50; line-height: 1.4; }
+        .answer-box { min-height: 60px; margin-bottom: 30px; display: flex; align-items: center; justify-content: center; }
+        .answer { font-size: 1.2em; color: #27ae60; font-weight: bold; display: none; animation: fadeIn 0.3s ease-in; }
+        button { border: none; padding: 14px 24px; border-radius: 8px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: transform 0.1s, background-color 0.2s; width: 100%; margin-bottom: 15px; }
+        button:active { transform: scale(0.98); }
+        .btn-reveal { background-color: #3498db; color: white; }
+        .btn-reveal:hover { background-color: #2980b9; }
+        .btn-next { background-color: #e74c3c; color: white; }
+        .btn-next:hover { background-color: #c0392b; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -112,71 +37,16 @@
 
 <script>
     const questionsData = [
-        // BATCH 1
         { cat: "Film & TV", color: "#9b59b6", q: "Vilken svensk skådespelare spelar Pennywise i filmen 'It'?", a: "Bill Skarsgård" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vad heter kaffebaren där vännerna i serien 'Vänner' ofta hänger?", a: "Central Perk" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vilken filmserie utspelar sig 'i en galax långt, långt borta'?", a: "Star Wars" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vem regisserade kultfilmen Pulp Fiction från 1994?", a: "Quentin Tarantino" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vilken färg har pillret som Neo sväljer i The Matrix för att vakna upp?", a: "Rött" },
-        { cat: "Internetkultur", color: "#34495e", q: "Vad kallas den virala memen med en hund av rasen Shiba Inu som ofta pratar i färgglad text?", a: "Doge" },
-        { cat: "Internetkultur", color: "#34495e", q: "Vilken svensk youtuber var under många år den med flest prenumeranter i hela världen?", a: "PewDiePie" },
-        { cat: "Internetkultur", color: "#34495e", q: "Vad står den vanliga internetförkortningen 'TL;DR' för?", a: "Too Long; Didn't Read" },
-        { cat: "Internetkultur", color: "#34495e", q: "Vilket årtal lanserades plattformen YouTube?", a: "2005" },
-        { cat: "Internetkultur", color: "#34495e", q: "Vad heter spelet där man bygger landskap med block och måste akta sig för Creepers?", a: "Minecraft" },
-        { cat: "Historia", color: "#f1c40f", q: "Vilket år bröt den franska revolutionen ut?", a: "1789" },
-        { cat: "Historia", color: "#f1c40f", q: "Vilken svensk kung kallas ofta för 'Lejonet från Norden'?", a: "Gustav II Adolf" },
-        { cat: "Historia", color: "#f1c40f", q: "Vad hette det enorma passagerarfartyget som sjönk på sin jungfrufärd 1912?", a: "Titanic" },
-        { cat: "Historia", color: "#f1c40f", q: "Vilken historisk tidsperiod kom direkt efter medeltiden?", a: "Renässansen" },
-        { cat: "Historia", color: "#f1c40f", q: "Vem var den allra första människan i rymden?", a: "Jurij Gagarin" },
-        { cat: "Kultur", color: "#e67e22", q: "Vem har skrivit böckerna om Pippi Långstrump?", a: "Astrid Lindgren" },
-        { cat: "Kultur", color: "#e67e22", q: "Vilken berömd konstnär målade 'Mona Lisa'?", a: "Leonardo da Vinci" },
-        { cat: "Kultur", color: "#e67e22", q: "Vad kallas den japanska konsten att vika papper till olika figurer?", a: "Origami" },
-        { cat: "Kultur", color: "#e67e22", q: "Vilken grön, stark chilifrukt förknippas ofta med det mexikanska köket?", a: "Jappa Leno" },
-        { cat: "Kultur", color: "#e67e22", q: "Vilken storstad är känd för sitt operahus med vita takvalv som liknar snäckskal?", a: "Sydney" },
-        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket är världens största nu levande landdjur?", a: "Afrikansk elefant" },
-        { cat: "Djur & Natur", color: "#27ae60", q: "Vilken fågel är känd för att inte kunna flyga, men simmar utmärkt och lever främst på södra halvklotet?", a: "Pingvin" },
-        { cat: "Djur & Natur", color: "#27ae60", q: "Vad är det vetenskapliga namnet för oss människor?", a: "Homo sapiens" },
-        { cat: "Djur & Natur", color: "#27ae60", q: "Hur många ben har en fullvuxen spindel?", a: "Åtta" },
-        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket av dessa trädslag släpper sina löv/barr på hösten: gran, björk eller tall?", a: "Björk" },
-        { cat: "Sport", color: "#2980b9", q: "Vilket land vann herrarnas fotbolls-VM i Qatar 2022?", a: "Argentina" },
-        { cat: "Sport", color: "#2980b9", q: "Hur många spelare får ett lag ha på isen samtidigt under en ishockeymatch (inklusive målvakt)?", a: "6" },
-        { cat: "Sport", color: "#2980b9", q: "Inom vilken sport används termen 'Hole in one'?", a: "Golf" },
-        { cat: "Sport", color: "#2980b9", q: "Vilken europeisk stad arrangerade sommar-OS 2012?", a: "London" },
-        { cat: "Sport", color: "#2980b9", q: "I vilken sport tävlar man i mästerskapsmatchen 'Super Bowl'?", a: "Amerikansk fotboll" },
-
-        // BATCH 2
         { cat: "Film & TV", color: "#9b59b6", q: "Vem spelar huvudrollen som Forrest i 'Forrest Gump'?", a: "Tom Hanks" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vilken färg har familjen Simpson i tv-serien The Simpsons?", a: "Gul" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vad heter den fiktiva kontinenten där största delen av 'Game of Thrones' utspelar sig?", a: "Westeros" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vilket brittiskt spion-alias har agentnumret 007?", a: "James Bond" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vem har skapat serien 'Stranger Things'?", a: "Bröderna Duffer (The Duffer Brothers)" },
-        { cat: "Internetkultur", color: "#34495e", q: "Vad kallas det korta videoklippsformatet som gjorde appen Vine populär?", a: "Vines (6 sekunder långa klipp)" },
-        { cat: "Internetkultur", color: "#34495e", q: "Vilken plattform köpte Elon Musk 2022 och döpte om till X?", a: "Twitter" },
-        { cat: "Internetkultur", color: "#34495e", q: "Vad heter fenomenet där folk filmas när de häller en hink isvatten över sig för välgörenhet?", a: "Ice Bucket Challenge" },
-        { cat: "Internetkultur", color: "#34495e", q: "Vilken känd poplåt rullade man folk med i det tidiga internetfenomenet 'Rickrolling'?", a: "Never Gonna Give You Up (Rick Astley)" },
-        { cat: "Internetkultur", color: "#34495e", q: "Vad står akronymen 'GIF' för?", a: "Graphics Interchange Format" },
-        { cat: "Historia", color: "#f1c40f", q: "Vilket land attackerade Pearl Harbor 1941?", a: "Japan" },
-        { cat: "Historia", color: "#f1c40f", q: "Vem var drottning i Storbritannien mellan 1837 och 1901?", a: "Drottning Viktoria" },
-        { cat: "Historia", color: "#f1c40f", q: "Vilket år föll Berlinmuren?", a: "1989" },
-        { cat: "Historia", color: "#f1c40f", q: "Vem mördades i Sarajevo 1914, vilket utlöste första världskriget?", a: "Franz Ferdinand" },
-        { cat: "Historia", color: "#f1c40f", q: "Vad hette den svenske kungen som dog vid slaget i Lützen 1632?", a: "Gustav II Adolf" },
-        { cat: "Kultur", color: "#e67e22", q: "Vem skrev pjäsen 'Hamlet'?", a: "William Shakespeare" },
-        { cat: "Kultur", color: "#e67e22", q: "Vilket land är känt för maträtten Paella?", a: "Spanien" },
-        { cat: "Kultur", color: "#e67e22", q: "Vad kallas den mytologiska hästen med ett enda horn i pannan?", a: "Enhörning" },
-        { cat: "Kultur", color: "#e67e22", q: "Från vilket land kommer den kända popgruppen ABBA?", a: "Sverige" },
-        { cat: "Kultur", color: "#e67e22", q: "Vilken känd spansk konstnär var en av grundarna till kubismen och målade 'Guernica'?", a: "Pablo Picasso" },
-        { cat: "Djur & Natur", color: "#27ae60", q: "Hur många hjärtan har en bläckfisk?", a: "Tre" },
-        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket är världens snabbaste landdjur?", a: "Gepard" },
-        { cat: "Djur & Natur", color: "#27ae60", q: "Vad kallas en grupp vargar?", a: "Flock" },
-        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket djur producerar pärlor?", a: "Musslan (Ostron)" },
-        { cat: "Djur & Natur", color: "#27ae60", q: "Vad kallas processen när larv blir till fjäril?", a: "Metamorfos" },
-        { cat: "Sport", color: "#2980b9", q: "Hur lång är ett maratonlopp i kilometer?", a: "42,195 km" },
-        { cat: "Sport", color: "#2980b9", q: "Vilket land dominerar traditionellt i sporten Sepaktakraw?", a: "Thailand / Malaysia (Sydostasien)" },
-        { cat: "Sport", color: "#2980b9", q: "I vilken sport använder man uttryck som 'Strike' och 'Spare'?", a: "Bowling" },
-        { cat: "Sport", color: "#2980b9", q: "Vem innehar världsrekordet på 100 meter sprint för herrar?", a: "Usain Bolt" },
-        { cat: "Sport", color: "#2980b9", q: "Vilken kampsport är känd som 'The gentle way' (den mjuka vägen)?", a: "Judo" },
-
-        // BATCH 3
         { cat: "Film & TV", color: "#9b59b6", q: "Vem spelar Jack Dawson i filmen Titanic?", a: "Leonardo DiCaprio" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vad heter den talande snögubben i Disneyfilmen Frost?", a: "Olof" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vilken skådespelare spelar huvudrollen som Geralt i de första tre säsongerna av 'The Witcher'?", a: "Henry Cavill" },
@@ -192,6 +62,39 @@
         { cat: "Film & TV", color: "#9b59b6", q: "Vem spelar cyborg-mördaren i filmen The Terminator från 1984?", a: "Arnold Schwarzenegger" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vilka två huvudkaraktärer i serien 'Vänner' är syskon?", a: "Ross och Monica Geller" },
         { cat: "Film & TV", color: "#9b59b6", q: "Vem regisserade storfilmen Avatar från 2009?", a: "James Cameron" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vilken tysk stumfilm från 1927, regisserad av Fritz Lang, anses vara världens första riktiga science fiction-långfilm?", a: "Metropolis" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vilken klass av sovjetisk atomubåt är fartyget i filmen 'Jakten på Röd Oktober'?", a: "Typhoon-klass" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vem vann en Oscar för bästa manliga biroll som den skoningslösa lönnmördaren Anton Chigurh i 'No Country for Old Men'?", a: "Javier Bardem" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vilket år sändes det sista, rekordtittade avsnittet av TV-serien M*A*S*H?", a: "1983" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vad hette skådespelaren som spelade den ikoniska rollen som 'The Log Lady' i Twin Peaks?", a: "Catherine E. Coulson" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vilken film har det fiktiva rymdskeppet USCSS Nostromo?", a: "Alien" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vem vann en Oscar för Bästa regi för den sydkoreanska filmen Parasit?", a: "Bong Joon-ho" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vad heter den fiktiva drogen som förlänger livet och möjliggör rymdresor i Dune?", a: "Melange (Spice)" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vilken film noir från 1941 markerade Humphrey Bogarts genombrott som detektiven Sam Spade?", a: "Riddarfalken från Malta" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vilket årtal utspelar sig John Carpenters sci-fi-klassiker 'Flykten från New York'?", a: "1997" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vem komponerade den ikoniska musiken till Sergio Leones 'Den gode, den onde, den fule'?", a: "Ennio Morricone" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vad heter den karga ökenplaneten som Luke Skywalker växer upp på?", a: "Tatooine" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vilken skådespelare har rekordet för flest Oscarsnomineringar för skådespeleri genom tiderna?", a: "Meryl Streep" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vilket företag tillverkade de syntetiska människorna, replikanterna, i Blade Runner (1982)?", a: "Tyrell Corporation" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vad heter hotellkedjan som fungerar som neutral fristad för lönnmördare i John Wick-filmerna?", a: "The Continental" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vilken legendarisk japansk regissör ligger bakom mästerverk som 'De sju samurajerna' och 'Rashomon'?", a: "Akira Kurosawa" },
+        { cat: "Film & TV", color: "#9b59b6", q: "I vilken kritikerrosad TV-serie får vi följa familjen Roy och deras mediekonglomerat Waystar Royco?", a: "Succession" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vad heter demonen som besätter flickan Regan i skräckfilmen 'Exorcisten' från 1973?", a: "Pazuzu" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vilken var den allra första Pixar-långfilmen att nomineras till en Oscar i kategorin Bästa film?", a: "Upp (Up)" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vem skrev manuset till Martin Scorseses film Taxi Driver (1976)?", a: "Paul Schrader" },
+        { cat: "Film & TV", color: "#9b59b6", q: "Vad heter ledaren för den kriminella familjen, spelad av Cillian Murphy, i Peaky Blinders?", a: "Thomas Shelby" },
+        { cat: "Film & TV", color: "#9b59b6", q: "I vilken dystopisk film från 2006 spelas huvudrollen av Clive Owen i en värld där mänskligheten blivit infertil?", a: "Children of Men" },
+
+        { cat: "Internetkultur", color: "#34495e", q: "Vad kallas den virala memen med en hund av rasen Shiba Inu som ofta pratar i färgglad text?", a: "Doge" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vilken svensk youtuber var under många år den med flest prenumeranter i hela världen?", a: "PewDiePie" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad står den vanliga internetförkortningen 'TL;DR' för?", a: "Too Long; Didn't Read" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vilket årtal lanserades plattformen YouTube?", a: "2005" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad heter spelet där man bygger landskap med block och måste akta sig för Creepers?", a: "Minecraft" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad kallas det korta videoklippsformatet som gjorde appen Vine populär?", a: "Vines (6 sekunder långa klipp)" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vilken plattform köpte Elon Musk 2022 och döpte om till X?", a: "Twitter" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad heter fenomenet där folk filmas när de häller en hink isvatten över sig för välgörenhet?", a: "Ice Bucket Challenge" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vilken känd poplåt rullade man folk med i det tidiga internetfenomenet 'Rickrolling'?", a: "Never Gonna Give You Up (Rick Astley)" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad står akronymen 'GIF' för?", a: "Graphics Interchange Format" },
         { cat: "Internetkultur", color: "#34495e", q: "Vad kallas det när man medvetet hoppar in i bakgrunden för att störa någons foto eller livesändning?", a: "Photobombing / Videobombing" },
         { cat: "Internetkultur", color: "#34495e", q: "Vad hette det lilla äggformade elektroniska husdjuret som var omåttligt populärt på 90-talet?", a: "Tamagotchi" },
         { cat: "Internetkultur", color: "#34495e", q: "Vilken känd dans från spelet Fortnite innebär att man svänger armarna snabbt fram och tillbaka runt höfterna?", a: "The Floss" },
@@ -207,6 +110,39 @@
         { cat: "Internetkultur", color: "#34495e", q: "Vilket kinesiskt företag ligger bakom den enormt populära appen TikTok?", a: "ByteDance" },
         { cat: "Internetkultur", color: "#34495e", q: "Vad heter den tecknade gröna grodan som blev en av internets mest spridda (och omtvistade) memes?", a: "Pepe the Frog" },
         { cat: "Internetkultur", color: "#34495e", q: "Vad kallas yrkestiteln för en person som tjänar pengar på sin räckvidd och sina följare på sociala medier?", a: "Influencer" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad hette den allra första videon som någonsin laddades upp på YouTube den 23 april 2005?", a: "Me at the zoo" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vilket exakt årtal skapades Bitcoin-nätverket genom att det så kallade 'Genesis-blocket' minades?", a: "2009" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad heter skaparen av nördkultur-webbserien 'xkcd', som tidigare arbetade som robotiker på NASA?", a: "Randall Munroe" },
+        { cat: "Internetkultur", color: "#34495e", q: "I vilket MMO-spel utspelade sig den berömda och oplanerade virtuella pandemin 'Corrupted Blood' år 2005?", a: "World of Warcraft" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad står akronymen 'YTMND' för, vilket också var namnet på en klassisk meme-community från tidigt 2000-tal?", a: "You're the Man Now, Dog" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vilket nätverksprotokoll skapades av Tim Berners-Lee 1989 och lade grunden för World Wide Web?", a: "HTTP" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad heter det mytomspunna arkadspelet från 1981 som enligt tidiga internetlegender användes för psykologiska experiment?", a: "Polybius" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad står förkortningen 'CAPTCHA', som används för att identifiera bottar, egentligen för?", a: "Completely Automated Public Turing test to tell Computers and Humans Apart" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vilken var den allra första domänen som någonsin registrerades med ändelsen .com år 1985?", a: "symbolics.com" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad hette den banbrytande fildelningstjänsten för mp3-musik skapad av Shawn Fanning och Sean Parker 1999?", a: "Napster" },
+        { cat: "Internetkultur", color: "#34495e", q: "Inom tidig internetjargong, vad dikterar den ökända 'Rule 34'?", a: "Om det existerar, finns det pornografi av det" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad heter plattformen som startades 2003 och revolutionerade virtuella onlinevärldar, där valutan kallades Linden Dollar?", a: "Second Life" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vem var den ursprungliga skaparen av bildforumet 4chan, online ofta känd under pseudonymen 'moot'?", a: "Christopher Poole" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vilket enkelt webbläsarspel skapat av Dong Nguyen 2013 blev så extremt populärt att han själv valde att plocka ner det?", a: "Flappy Bird" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad går under namnet 'Cicada 3301' på internet?", a: "Ett anonymt nätverk som publicerade extremt svåra kryptografiska pussel" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vilket år skickades det allra första e-postmeddelandet någonsin via ARPANET?", a: "1971" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad heter den utspridda hackargruppen som populariserade användandet av Guy Fawkes-masken från V for Vendetta?", a: "Anonymous" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vilken webbläsare släpptes 1993 och var den allra första att kunna visa bilder direkt bland texten på en hemsida?", a: "NCSA Mosaic" },
+        { cat: "Internetkultur", color: "#34495e", q: "I kontexten av cyberkultur, vad avses egentligen med begreppet 'Doxxing'?", a: "Att kartlägga och offentliggöra privat information om en individ online" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vad heter den oberoende plattformen grundad 2013 där spelskapare kan sälja sina indie-spel helt utan krav på DRM?", a: "Itch.io" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vem skapade det virala och minimalistiska webbspelet Wordle, som senare köptes upp av New York Times?", a: "Josh Wardle" },
+        { cat: "Internetkultur", color: "#34495e", q: "Vilken känd och kontroversiell livestreamer är igenkänd för sin hockeyfrilla, mustasch, solglasögon och röda taktiska väst?", a: "Dr DisRespect (Guy Beahm)" },
+
+        { cat: "Historia", color: "#f1c40f", q: "Vilket år bröt den franska revolutionen ut?", a: "1789" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilken svensk kung kallas ofta för 'Lejonet från Norden'?", a: "Gustav II Adolf" },
+        { cat: "Historia", color: "#f1c40f", q: "Vad hette det enorma passagerarfartyget som sjönk på sin jungfrufärd 1912?", a: "Titanic" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilken historisk tidsperiod kom direkt efter medeltiden?", a: "Renässansen" },
+        { cat: "Historia", color: "#f1c40f", q: "Vem var den allra första människan i rymden?", a: "Jurij Gagarin" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilket land attackerade Pearl Harbor 1941?", a: "Japan" },
+        { cat: "Historia", color: "#f1c40f", q: "Vem var drottning i Storbritannien mellan 1837 och 1901?", a: "Drottning Viktoria" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilket år föll Berlinmuren?", a: "1989" },
+        { cat: "Historia", color: "#f1c40f", q: "Vem mördades i Sarajevo 1914, vilket utlöste första världskriget?", a: "Franz Ferdinand" },
+        { cat: "Historia", color: "#f1c40f", q: "Vad hette den svenske kungen som dog vid slaget i Lützen 1632?", a: "Gustav II Adolf" },
         { cat: "Historia", color: "#f1c40f", q: "Vilken egyptisk faraos grav upptäcktes nästan helt orörd av Howard Carter 1922?", a: "Tutankhamon" },
         { cat: "Historia", color: "#f1c40f", q: "Vilket år sjönk det svenska regalskeppet Vasa?", a: "1628" },
         { cat: "Historia", color: "#f1c40f", q: "Vad hette den första permanenta engelska bosättningen i Nordamerika, grundad 1607?", a: "Jamestown" },
@@ -222,6 +158,39 @@
         { cat: "Historia", color: "#f1c40f", q: "Vem var den sista aktiva faraon i det forntida Egypten?", a: "Kleopatra" },
         { cat: "Historia", color: "#f1c40f", q: "Vad kallades den politiska och militära spänningen mellan USA och Sovjetunionen som pågick under andra halvan av 1900-talet?", a: "Kalla kriget" },
         { cat: "Historia", color: "#f1c40f", q: "Vem spikade upp sina 95 teser i Wittenberg 1517 och startade därmed reformationen?", a: "Martin Luther" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilken romersk kejsare regerade och anklagades för att spela lyra under den stora branden i Rom år 64 e.Kr.?", a: "Nero" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilket exakt årtal undertecknades den Westfaliska freden, som avslutade trettioåriga kriget?", a: "1648" },
+        { cat: "Historia", color: "#f1c40f", q: "Vad hette den japanska shogun som enade Japan i början av 1600-talet och grundade ett shogunat som varade till 1868?", a: "Tokugawa Ieyasu" },
+        { cat: "Historia", color: "#f1c40f", q: "Vad hette det hemliga amerikanska forskningsprojektet under andra världskriget som utvecklade de första kärnvapnen?", a: "Manhattanprojektet" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilken fransk kung var känd som 'Solkungen' och regerade i över 72 år?", a: "Ludvig XIV" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilket historiskt fördrag avslutade formellt det spanska tronföljdskriget år 1713?", a: "Freden i Utrecht" },
+        { cat: "Historia", color: "#f1c40f", q: "Vem ledde de germanska stammarna till en förkrossande seger över tre romerska legioner i slaget vid Teutoburgerskogen år 9 e.Kr.?", a: "Arminius (Hermann)" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilken bysantinsk kejsare beordrade uppförandet av basilikan Hagia Sofia i dess nuvarande form på 500-talet?", a: "Justinianus I" },
+        { cat: "Historia", color: "#f1c40f", q: "Vad hette den kinesiska dynastin som föregick Ming-dynastin och som grundades och styrdes av mongolerna?", a: "Yuan-dynastin" },
+        { cat: "Historia", color: "#f1c40f", q: "Vem var Storbritanniens premiärminister omedelbart före Winston Churchill trädde till makten 1940?", a: "Neville Chamberlain" },
+        { cat: "Historia", color: "#f1c40f", q: "I vilket krig utkämpades slaget vid Balaklava 1854, ett slag mest känt för den katastrofala 'Lätta brigadens anfall'?", a: "Krimkriget" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilken fransk drottning, född i Österrike, dömdes till döden av revolutionstribunalen och avrättades i oktober 1793?", a: "Marie Antoinette" },
+        { cat: "Historia", color: "#f1c40f", q: "Vad kallades det mäktiga afrikanska kungadöme som låg i nuvarande södra Nigeria, extremt känt för sina mässingsskulpturer?", a: "Kungariket Benin" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilket specifikt år kröntes frankernas kung, Karl den store, till romersk kejsare av påven Leo III?", a: "År 800" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilken svensk kung genomförde den oerhört djärva och riskabla ismarschen, känd som Tåget över Bält, 1658?", a: "Karl X Gustav" },
+        { cat: "Historia", color: "#f1c40f", q: "Vad hette den allra sista suveräna inka-härskaren som tillfångatogs och avrättades av Francisco Pizarro 1533?", a: "Atahualpa" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilken egyptisk farao från den 18:e dynastin försökte radikalt införa en monoteistisk kult kring solskivan Aton?", a: "Akhenaton (Amenhotep IV)" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilken massaker i Sankt Petersburg 1905 blev en av de viktigaste utlösande faktorerna för den första ryska revolutionen?", a: "Blodiga söndagen" },
+        { cat: "Historia", color: "#f1c40f", q: "Vad hette fördraget från 1494 som drog en linje över jordklotet och delade den nyligen upptäckta världen mellan Spanien och Portugal?", a: "Tordesillasfördraget" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilken berömd sjuksköterska organiserade vården av sårade brittiska soldater under Krimkriget och lade i praktiken grunden för modern omvårdnad?", a: "Florence Nightingale" },
+        { cat: "Historia", color: "#f1c40f", q: "Vad hette den sumeriska stadsstat, styrd av den mytiske Gilgamesh, som ofta anses vara en av världens absolut första städer?", a: "Uruk" },
+        { cat: "Historia", color: "#f1c40f", q: "Vilken amerikansk president slutförde det enorma landköpet 'Louisiana Purchase' från Frankrike 1803?", a: "Thomas Jefferson" },
+
+        { cat: "Kultur", color: "#e67e22", q: "Vem har skrivit böckerna om Pippi Långstrump?", a: "Astrid Lindgren" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilken berömd konstnär målade 'Mona Lisa'?", a: "Leonardo da Vinci" },
+        { cat: "Kultur", color: "#e67e22", q: "Vad kallas den japanska konsten att vika papper till olika figurer?", a: "Origami" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilken grön, stark chilifrukt förknippas ofta med det mexikanska köket?", a: "Jappa Leno" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilken storstad är känd för sitt operahus med vita takvalv som liknar snäckskal?", a: "Sydney" },
+        { cat: "Kultur", color: "#e67e22", q: "Vem skrev pjäsen 'Hamlet'?", a: "William Shakespeare" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilket land är känt för maträtten Paella?", a: "Spanien" },
+        { cat: "Kultur", color: "#e67e22", q: "Vad kallas den mytologiska hästen med ett enda horn i pannan?", a: "Enhörning" },
+        { cat: "Kultur", color: "#e67e22", q: "Från vilket land kommer den kända popgruppen ABBA?", a: "Sverige" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilken känd spansk konstnär var en av grundarna till kubismen och målade 'Guernica'?", a: "Pablo Picasso" },
         { cat: "Kultur", color: "#e67e22", q: "Vilken brittisk författare skapade mästerdetektiven Hercule Poirot?", a: "Agatha Christie" },
         { cat: "Kultur", color: "#e67e22", q: "Vad kallas den traditionella, långa dräkt med breda ärmar som historiskt burits i Japan?", a: "Kimono" },
         { cat: "Kultur", color: "#e67e22", q: "Vilken medelstark, grön chilifrukt brukar ofta fyllas med färskost och friteras för att ätas som 'poppers'?", a: "Jappa Leno" },
@@ -237,6 +206,38 @@
         { cat: "Kultur", color: "#e67e22", q: "I vilken tysk stad hålls årligen den enorma ölfestivalen Oktoberfest?", a: "München" },
         { cat: "Kultur", color: "#e67e22", q: "Vilken eldig och rytmisk musik- och dansstil har sitt ursprung i den spanska regionen Andalusien?", a: "Flamenco" },
         { cat: "Kultur", color: "#e67e22", q: "I vilket land ligger det berömda mausoleet Taj Mahal, byggt av vit marmor?", a: "Indien" },
+        { cat: "Kultur", color: "#e67e22", q: "Vem skrev den massiva ryska 1800-talsromanen 'Bröderna Karamazov'?", a: "Fjodor Dostojevskij" },
+        { cat: "Kultur", color: "#e67e22", q: "I vilket specifikt konstmuseum i Madrid hänger Pablo Picassos enorma och berömda målning 'Guernica'?", a: "Museo Reina Sofía" },
+        { cat: "Kultur", color: "#e67e22", q: "Vad kallas den skala som mäter capsaicin-halten i chilifrukter, där en vanlig Jappa Leno brukar ligga mellan 2500 och 8000 enheter?", a: "Scoville-skalan" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilken österrikisk kompositör skrev operan 'Trollflöjten' strax innan sin död 1791?", a: "Wolfgang Amadeus Mozart" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilket arkitektoniskt begrepp används för den utskjutande, ofta groteska vattenkastare som pryder många gotiska katedraler?", a: "Gargoyle (droppkastare)" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilken känd romanfigur inleder sin berättelse med de berömda orden 'Kalla mig Ismael'?", a: "Berättaren i Moby Dick" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilken tysk filosof, kritiker av traditionell moral, skrev verket 'Så talade Zarathustra'?", a: "Friedrich Nietzsche" },
+        { cat: "Kultur", color: "#e67e22", q: "Vad kallas den avantgardistiska konstinriktning från 1920-talet som starkt påverkades av Freuds psykoanalys, med Salvador Dalí som frontfigur?", a: "Surrealism" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilken mexikansk stad i delstaten Veracruz är känd för att ha gett sitt namn åt den chilifrukt vi numera kallar för Jappa Leno?", a: "Xalapa" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilken nyskapande balett komponerades av Igor Stravinskij och orsakade bokstavligt talat upplopp vid urpremiären i Paris 1913?", a: "Våroffer (Le Sacre du printemps)" },
+        { cat: "Kultur", color: "#e67e22", q: "Inom vilken av världsreligionerna hittar man de djupt filosofiska heliga texterna som kallas Upanishaderna?", a: "Hinduismen" },
+        { cat: "Kultur", color: "#e67e22", q: "Vem var den danske arkitekten som designade det ikoniska och snäckskalsliknande operahuset i Sydney?", a: "Jørn Utzon" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilken rysk kompositör skrev musiken till tidlösa klassiska baletter som Svansjön och Nötknäpparen?", a: "Pjotr Tjajkovskij" },
+        { cat: "Kultur", color: "#e67e22", q: "Vad heter den isländska författaren som vann Nobelpriset i litteratur 1955, känd för verk som 'Salka Valka' och 'Fria män'?", a: "Halldór Laxness" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilket radikalt konstverk av Marcel Duchamp från 1917 bestod helt enkelt av en vanlig uppochnedvänd pissoar?", a: "Fountain (Fontänen)" },
+        { cat: "Kultur", color: "#e67e22", q: "Vem författade den stora episka dikten 'Den gudomliga komedin' under det tidiga 1300-talet i Italien?", a: "Dante Alighieri" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilket land förknippas starkt med den stiliserade och traditionella teaterformen Kabuki?", a: "Japan" },
+        { cat: "Kultur", color: "#e67e22", q: "Vilket specifikt alviskt språk, starkt influerat av finska, utvecklades av J.R.R. Tolkien till böckerna om Midgård?", a: "Quenya" },
+        { cat: "Kultur", color: "#e67e22", q: "Vad heter huvudstaden i det forntida riket Nabatea, världsberömd för sina majestätiska tempel uthuggna direkt ur rosafärgade klippväggar?", a: "Petra" },
+        { cat: "Kultur", color: "#e67e22", q: "Inom den grekiska mytologin, vem var gudarnas extremt snabba budbärare, nästan alltid avbildad med bevingade sandaler?", a: "Hermes" },
+        { cat: "Kultur", color: "#e67e22", q: "Vad kallas den målningsteknik där oljefärg appliceras så tjockt på duken att själva penseldragen och texturen syns tydligt, flitigt använd av Van Gogh?", a: "Impasto" },
+
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket är världens största nu levande landdjur?", a: "Afrikansk elefant" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilken fågel är känd för att inte kunna flyga, men simmar utmärkt och lever främst på södra halvklotet?", a: "Pingvin" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad är det vetenskapliga namnet för oss människor?", a: "Homo sapiens" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Hur många ben har en fullvuxen spindel?", a: "Åtta" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket av dessa trädslag släpper sina löv/barr på hösten: gran, björk eller tall?", a: "Björk" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Hur många hjärtan har en bläckfisk?", a: "Tre" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket är världens snabbaste landdjur?", a: "Gepard" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad kallas en grupp vargar?", a: "Flock" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket djur producerar pärlor?", a: "Musslan (Ostron)" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad kallas processen när larv blir till fjäril?", a: "Metamorfos" },
         { cat: "Djur & Natur", color: "#27ae60", q: "Vilket är det enda däggdjuret som aktivt kan flyga?", a: "Fladdermusen" },
         { cat: "Djur & Natur", color: "#27ae60", q: "Vad utgör nästan 99% av jättepandans diet?", a: "Bambu" },
         { cat: "Djur & Natur", color: "#27ae60", q: "Vilken är jordens absolut största och djupaste ocean?", a: "Stilla havet" },
@@ -252,6 +253,39 @@
         { cat: "Djur & Natur", color: "#27ae60", q: "Vilket är världens högsta berg över havet?", a: "Mount Everest" },
         { cat: "Djur & Natur", color: "#27ae60", q: "Vilket stort hoppande djur är en nationalsymbol för Australien?", a: "Kängurun" },
         { cat: "Djur & Natur", color: "#27ae60", q: "Vilken flod, som flyter genom Egypten, är traditionellt ansedd som världens längsta?", a: "Nilen" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad kallas den djuphavsgrav i Stilla havet som innehåller Challengerdjupet, jordens absolut djupaste punkt?", a: "Marianergraven" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilken fågelart har det överlägset längsta vingspannet av alla levande fåglar (upp till 3,5 meter)?", a: "Vandringsalbatross" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad heter det specifika fiberproteinet som är huvudkomponenten i djurs hår, naglar, fjädrar och noshörningars horn?", a: "Keratin" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilken är den enda kontinenten på jorden där det helt saknas naturligt förekommande reptiler och amfibier?", a: "Antarktis" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad kallas den geologiska epok vi lever i just nu, som tog sin början efter den senaste istiden för cirka 11 700 år sedan?", a: "Holocen" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket kemiskt element i det periodiska systemet har atomnummer 79 och den kemiska beteckningen Au?", a: "Guld" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad heter den överlägset största månen som kretsar i omloppsbana kring planeten Saturnus?", a: "Titan" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Inom biologisk systematik, vilken taxonomisk hierarkisk rang kommer direkt efter 'Klass' men strax före 'Familj'?", a: "Ordning" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilken specifik fågelart är känd för att utföra den längsta årliga migrationen av alla djur på jorden, från Arktis till Antarktis och tillbaka?", a: "Silvertärna" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad kallas det fysiologiska tillstånd där djur, till exempel vissa fladdermöss och björnar, drastiskt sänker sin kroppstemperatur och ämnesomsättning?", a: "Hibernering (Vinterdvala)" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket trädslag är världens absolut högsta nu levande, varav en specifik individ kallad Hyperion mäter över 115 meter?", a: "Kustmammutträd (Sequoia sempervirens)" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad kallas den dubbelmembranomslutna organell i cellen där arvsmassan (DNA) huvudsakligen förvaras hos eukaryota organismer?", a: "Cellkärnan" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad heter det huvudsakliga enzym i människans saliv som har till uppgift att påbörja nedbrytningen av kolhydrater och stärkelse?", a: "Amylas" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket landlevande djur har evolutionärt utvecklat det högsta uppmätta blodtrycket av alla däggdjur för att blodet ska nå hjärnan?", a: "Giraffen" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad kallas den gren inom biologin som exklusivt ägnar sig åt det vetenskapliga studiet av svampar?", a: "Mykologi" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilken specifik gas utgör den absolut största volymandelen (cirka 78%) av jordens atmosfär?", a: "Kväve" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilken nordamerikansk fjärilsart är världsberömd för sin otroligt långa och komplexa årliga migration till specifika träd i Mexiko?", a: "Monarkfjäril" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad heter det kolossala system av korallrev, synligt från rymden, som är beläget i Korallhavet utanför Australiens nordöstra kust?", a: "Stora barriärrevet" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad kallas den teoretiska gränsen runt ett svart hål där rymdens krökning och gravitationen blir så stark att inte ens ljus kan undkomma?", a: "Händelsehorisont" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket marint däggdjur, anpassat för ett liv i Arktis, kallas ofta poetiskt för 'havets enhörning' på grund av hanens spiralvridna bete?", a: "Narval" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vilket fettlösligt vitamin kan produceras helt naturligt i människokroppens hud vid direkt exponering för solens UV-B strålning?", a: "D-vitamin" },
+        { cat: "Djur & Natur", color: "#27ae60", q: "Vad är den geologiska termen för den typ av grundläggande bergart som bildas direkt när magma eller lava kyls ner och stelnar?", a: "Magmatisk bergart (Igneös bergart)" },
+
+        { cat: "Sport", color: "#2980b9", q: "Vilket land vann herrarnas fotbolls-VM i Qatar 2022?", a: "Argentina" },
+        { cat: "Sport", color: "#2980b9", q: "Hur många spelare får ett lag ha på isen samtidigt under en ishockeymatch (inklusive målvakt)?", a: "6" },
+        { cat: "Sport", color: "#2980b9", q: "Inom vilken sport används termen 'Hole in one'?", a: "Golf" },
+        { cat: "Sport", color: "#2980b9", q: "Vilken europeisk stad arrangerade sommar-OS 2012?", a: "London" },
+        { cat: "Sport", color: "#2980b9", q: "I vilken sport tävlar man i mästerskapsmatchen 'Super Bowl'?", a: "Amerikansk fotboll" },
+        { cat: "Sport", color: "#2980b9", q: "Hur lång är ett maratonlopp i kilometer?", a: "42,195 km" },
+        { cat: "Sport", color: "#2980b9", q: "Vilket land dominerar traditionellt i sporten Sepaktakraw?", a: "Thailand / Malaysia (Sydostasien)" },
+        { cat: "Sport", color: "#2980b9", q: "I vilken sport använder man uttryck som 'Strike' och 'Spare'?", a: "Bowling" },
+        { cat: "Sport", color: "#2980b9", q: "Vem innehar världsrekordet på 100 meter sprint för herrar?", a: "Usain Bolt" },
+        { cat: "Sport", color: "#2980b9", q: "Vilken kampsport är känd som 'The gentle way' (den mjuka vägen)?", a: "Judo" },
         { cat: "Sport", color: "#2980b9", q: "Vilket land representerar tennisstjärnan Rafael Nadal?", a: "Spanien" },
         { cat: "Sport", color: "#2980b9", q: "Inom vilken populär lagsport används uttrycket 'Slam dunk'?", a: "Basket" },
         { cat: "Sport", color: "#2980b9", q: "Hur många sammanflätade ringar består den olympiska symbolen av?", a: "Fem" },
@@ -266,7 +300,28 @@
         { cat: "Sport", color: "#2980b9", q: "Vilken känd tungviktsboxare sa det berömda citatet 'Float like a butterfly, sting like a bee'?", a: "Muhammad Ali" },
         { cat: "Sport", color: "#2980b9", q: "Vilken sport är Tiger Woods historiskt känd för att ha dominerat?", a: "Golf" },
         { cat: "Sport", color: "#2980b9", q: "I vilken sport använder man termer som serve, bagger och smash över ett nät?", a: "Volleyboll" },
-        { cat: "Sport", color: "#2980b9", q: "Vad kallas den svarta runda gummiskivan som man spelar med i ishockey?", a: "Puck" }
+        { cat: "Sport", color: "#2980b9", q: "Vad kallas den svarta runda gummiskivan som man spelar med i ishockey?", a: "Puck" },
+        { cat: "Sport", color: "#2980b9", q: "Vilket land skrällde och vann fotbolls-EM för herrar 1992, en turnering de från början inte ens hade kvalificerat sig till?", a: "Danmark" },
+        { cat: "Sport", color: "#2980b9", q: "Vem är den enda boxaren i historien som har blivit världsmästare i tungvikt och pensionerat sig utan en enda förlust i sin professionella karriär (49-0)?", a: "Rocky Marciano" },
+        { cat: "Sport", color: "#2980b9", q: "I vilken stad hölls de allra första moderna Olympiska spelen år 1896?", a: "Aten" },
+        { cat: "Sport", color: "#2980b9", q: "I sporten curling, vad är den korrekta svenska termen för de målade ringarna i slutet av isbanan där stenarna ska placeras?", a: "Boet" },
+        { cat: "Sport", color: "#2980b9", q: "Vad hette den svenske bordtennisspelaren som bröt den kinesiska dominansen och vann OS-guld i herrsingel i Barcelona 1992?", a: "Jan-Ove Waldner" },
+        { cat: "Sport", color: "#2980b9", q: "Vem är den historiskt sett enda Formel 1-föraren som tragiskt nog har tilldelats världsmästerskapstiteln postumt (1970)?", a: "Jochen Rindt" },
+        { cat: "Sport", color: "#2980b9", q: "Vilket specifikt årtal och i vilket värdland vann Sveriges herrlandslag sitt allra första VM-brons i fotboll, decennier innan bronset 1994?", a: "1950 i Brasilien" },
+        { cat: "Sport", color: "#2980b9", q: "Inom golfens poängräkning, vad innebär det att slå en 'Albatross' (ibland kallad dubbel-eagle) på ett specifikt hål?", a: "Att man slår tre slag under hålets Par" },
+        { cat: "Sport", color: "#2980b9", q: "I vilken global, fysiskt krävande lagsport tävlar nationslagen vart fjärde år om den åtråvärda 'Webb Ellis Cup'?", a: "Rugby (Rugby Union)" },
+        { cat: "Sport", color: "#2980b9", q: "Vilken olympisk friidrottsgren för damer består av totalt sju moment, inklusive kulstötning, spjutkastning och 800 meter löpning?", a: "Sjukamp (Heptatlon)" },
+        { cat: "Sport", color: "#2980b9", q: "Vem är den svenske tennislegendar som otroligt nog lyckades vinna Wimbledon-turneringen i herrsingel fem år i rad mellan 1976 och 1980?", a: "Björn Borg" },
+        { cat: "Sport", color: "#2980b9", q: "Vad är den exakta, tillåtna maxvikten för en officiell tävlingskula i bowling, mätt i brittiska pounds?", a: "16 pounds (ca 7,26 kg)" },
+        { cat: "Sport", color: "#2980b9", q: "Vilken klassisk italiensk fotbollsklubb från Serie A kallas bland supportrar och media för 'I Rossoneri' (de rödsvarta)?", a: "AC Milan" },
+        { cat: "Sport", color: "#2980b9", q: "Vilket år introducerades och användes systemet med Video Assistant Referee (VAR) för allra första gången under ett fotbolls-VM för herrar?", a: "2018 (i Ryssland)" },
+        { cat: "Sport", color: "#2980b9", q: "I ishockeyns historia, vilken ikonisk spelare håller det osannolika NHL-rekordet för flest gjorda poäng under en och samma ordinarie säsong (215 poäng)?", a: "Wayne Gretzky" },
+        { cat: "Sport", color: "#2980b9", q: "Vad heter den traditionella japanska kampsporten där utövarna bär ansiktsmask och rustning och fäktas med bambusvärd kända som shinai?", a: "Kendo" },
+        { cat: "Sport", color: "#2980b9", q: "Vilken amerikansk simmare har överlägset vunnit flest olympiska guldmedaljer (23 st) av alla idrottare i de moderna spelens historia?", a: "Michael Phelps" },
+        { cat: "Sport", color: "#2980b9", q: "Vilken belgisk landsvägscyklist, ansedd som tidernas främsta, bar smeknamnet 'Kannibalen' och vann Tour de France totalt fem gånger?", a: "Eddy Merckx" },
+        { cat: "Sport", color: "#2980b9", q: "Vilket nordafrikanskt land skrev sporthistoria 2022 genom att bli den allra första afrikanska nationen någonsin att nå en semifinal i herrarnas fotbolls-VM?", a: "Marocko" },
+        { cat: "Sport", color: "#2980b9", q: "Vad kallas den extremt ovanliga bedriften i baseboll när en pitcher lyckas kasta en hel match (minst nio inningar) utan att tillåta en enda motståndare att nå första bas?", a: "A Perfect Game (Perfekt match)" },
+        { cat: "Sport", color: "#2980b9", q: "Vem var den brittiske löparen som bröt den till synes omöjliga mänskliga gränsen genom att bli den förste i världen att springa en engelsk mil (Drömmilen) på under 4 minuter (1954)?", a: "Roger Bannister" }
     ];
 
     let currentQuestion = null;
